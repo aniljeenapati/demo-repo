@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_security_group" "app_sg" {
   name        = "app-security-group"
   description = "Allow inbound traffic for Flask app"
-  vpc_id      = var.vpc_id  # use your VPC ID here
+  vpc_id      = "vpc-067780b27f22731cb"
 
   ingress {
     description      = "Allow Flask app traffic"
