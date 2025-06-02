@@ -21,12 +21,12 @@ resource "aws_instance" "app_vm" {
               EOF
 
   tags = {
-    Name = "flask-demo"
+    Name = "app-demo"
   }
 
   associate_public_ip_address = true
 }
 
 output "public_ip" {
-  value = aws_instance.flask_vm.public_ip
+  value = aws_instance.app_vm.public_ip
 }
