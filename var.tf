@@ -1,9 +1,9 @@
 variable "region" {
-  default = "us-east-1"
+  default = "eu-north-1"
 }
 
 variable "ami" {
-  default = "ami-0953476d60561c955"  # Amazon Linux 2 AMI (for us-east-1)
+  default = "ami-0c1ac8a41498c1a9c"
 }
 
 variable "instance_type" {
