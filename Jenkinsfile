@@ -3,12 +3,13 @@ pipeline {
 
     environment {
         AWS_CREDS = credentials('aws-credentials')
+        GIT_CRED = credentials('git-creds')
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/aniljeenapati/demo-repo.git'
+              git credentialsId: "${env.GIT_CRED}", url: 'https://github.com/aniljeenapati/demo-repo.git', branch: 'main'
             }
         }
 
