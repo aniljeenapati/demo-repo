@@ -1,3 +1,3 @@
-output "public_ip" {
-  value = aws_instance.flask_app.public_ip
+output "flask_vm_ip" {
+  value = aws_instance.flask_vm.public_ip
 }
