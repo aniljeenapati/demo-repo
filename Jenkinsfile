@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_CREDS = credentials('aws-credentials')
+        AWS_CREDS = credentials('aws-cred')
         GIT_CRED = credentials('git-cred')
     }
 
