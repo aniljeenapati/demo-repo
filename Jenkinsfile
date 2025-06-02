@@ -20,16 +20,21 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-          steps {
-            withEnv([
-              "AWS_ACCESS_KEY_ID=${env.AWS_CREDS_USR}",
-              "AWS_SECRET_ACCESS_KEY=${env.AWS_CREDS_PSW}"
-                 ]) {
-                  sh 'terraform apply -auto-approve -var="key_name=your-ssh-key-name"'
+            steps {
+                withCredentials([file(credentialsId: 'ec2-ssh-key', variable: 'PEM_FILE')]) {
+                    withEnv([
+                      "AWS_ACCESS_KEY_ID=${env.AWS_CREDS_USR}",
+                      "AWS_SECRET_ACCESS_KEY=${env.AWS_CREDS_PSW}"
+                    ]) {
+                        sh '''
+                        echo "Using PEM file stored in: $PEM_FILE"
+                        terraform apply -auto-approve -var="key_name=anil-keypair"
+                        '''
+                    }
+                }
             }
-          }
         }
-    }
+}
 
     post {
         always {
