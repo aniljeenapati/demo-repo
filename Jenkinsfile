@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_CREDS = credentials('aws-credentials')
-        GIT_CRED = credentials('git-creds')
+        GIT_CRED = credentials('git-cred')
     }
 
     stages {
