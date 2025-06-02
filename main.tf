@@ -20,7 +20,7 @@ resource "aws_security_group" "app_sg" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["your-ip-address/32"] # restrict to your IP
+    cidr_blocks      = ["205.254.168.186/32"] # restrict to your IP
   }
 
   egress {
