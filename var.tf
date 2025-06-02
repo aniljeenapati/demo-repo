@@ -11,5 +11,5 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "Name of the SSH key pair"
+  default = "anil-keypair"  # replace with your actual key pair name
 }
