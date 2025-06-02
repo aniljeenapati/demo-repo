@@ -20,14 +20,14 @@ pipeline {
         }
 
         stage('Terraform Apply') {
-            steps {
-                    withEnv([
-                        "AWS_ACCESS_KEY_ID=${env.AWS_CREDS_USR}",
-                        "AWS_SECRET_ACCESS_KEY=${env.AWS_CREDS_PSW}"
-                    ]) {
-                        sh 'terraform apply -auto-approve -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}" -var="key_name=your-ssh-key-name"'
-                }
+          steps {
+            withEnv([
+              "AWS_ACCESS_KEY_ID=${env.AWS_CREDS_USR}",
+              "AWS_SECRET_ACCESS_KEY=${env.AWS_CREDS_PSW}"
+                 ]) {
+                  sh 'terraform apply -auto-approve -var="key_name=your-ssh-key-name"'
             }
+          }
         }
     }
 
